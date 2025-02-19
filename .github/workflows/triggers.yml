@@ -3,7 +3,8 @@ run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on:
   push:
     branches:
-      - master
+      - main
+      - aprendiendo-github-actions
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
@@ -23,7 +24,7 @@ on:
         - JavaScript
         - Go
       nombre:
-        description: 'Jorge Arias'
+        description: 'tu nombre'
         required: true
         default: Juan
         type: string
