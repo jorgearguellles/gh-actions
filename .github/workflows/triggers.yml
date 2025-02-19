@@ -33,13 +33,15 @@ on:
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
+    env:
+      MI_FAVORITE_LANGUAJE: "JavaScript"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Definir nombre
-        run: echo "USERNAME=${{ inputs.actor }}" >> $GITHUB_ENV
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
       - name: Definir lenguaje
-        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
+        run: echo $MI_FAVORITE_LANGUAJE
       - name: Correr script
         run: python hola_lenguaje.py
   hola-mundo:
