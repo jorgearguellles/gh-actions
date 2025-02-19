@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
-        description: 'Lenguaje favorito'
+        description: 'Python'
         default: Python
         required: true
         type: choice
@@ -24,7 +24,7 @@ on:
         - JavaScript
         - Go
       nombre:
-        description: 'tu nombre'
+        description: 'Jorge'
         required: true
         default: Juan
         type: string
