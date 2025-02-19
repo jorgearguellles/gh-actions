@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Definir nombre
-        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+        run: echo "USERNAME=${{ inputs.actor }}" >> $GITHUB_ENV
       - name: Definir lenguaje
         run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
       - name: Correr script
