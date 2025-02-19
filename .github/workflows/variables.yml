@@ -1,0 +1,25 @@
+name: Variables de Entorno
+run-name: ¡Estoy aprendiendo a usar Variables de Entorno!
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  workflow_dispatch:
+
+jobs:
+  usar-variables:
+    runs-on: ubuntu-latest
+    env:
+      MI_VARIABLE_GLOBAL: "Este es un valor global"
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      
+      - name: Definir variables en el entorno
+        run: |
+          echo "MI_VARIABLE_LOCAL=Este es un valor local" >> $GITHUB_ENV
+      
+      - name: Usar variables
+        run: |
+          echo "Variable Global: $MI_VARIABLE_GLOBAL"
+          echo "Variable Local: $MI_VARIABLE_LOCAL"

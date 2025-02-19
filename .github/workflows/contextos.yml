@@ -1,0 +1,25 @@
+name: Contextos
+run-name: ¡Estoy aprendiendo a usar Contextos!
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  workflow_dispatch:
+
+jobs:
+  mostrar-contextos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      
+      - name: Mostrar información del contexto
+        run: |
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Evento: ${{ github.event_name }}"
+          echo "Sistema Operativo: ${{ runner.os }}"
+          echo "Directorio de trabajo: ${{ github.workspace }}"
+          echo "Variable de entorno personalizada: ${{ env.MI_VARIABLE }}"
+        env:
+          MI_VARIABLE: "Hola desde env!"
