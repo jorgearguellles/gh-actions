@@ -1,0 +1,25 @@
+name: Expresiones
+
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  workflow_dispatch:
+
+jobs:
+  evaluar-expresiones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      
+      - name: Definir variables
+        run: |
+          echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
+          echo "ES_PRINCIPAL=${{ github.ref == 'refs/heads/main' }}" >> $GITHUB_ENV
+          echo "MENSAJE=${{ github.event_name == 'push' && 'Se hizo un push' || 'Otro evento' }}" >> $GITHUB_ENV
+      
+      - name: Ejecutar función en script
+        run: |
+          echo "Ejecutando script..."
+          python script_expresiones.py
